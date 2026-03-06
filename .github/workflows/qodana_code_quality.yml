@@ -27,6 +27,7 @@ jobs:
         with:
           # When pr-mode is set to true, Qodana analyzes only the files that have been changed
           pr-mode: false
+          args: --project-jdk,17
           use-caches: true
           post-pr-comment: false
           use-annotations: true
