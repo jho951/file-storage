@@ -1,6 +1,6 @@
 version: "1.0"
 image: jetbrains/qodana-jvm-community:2025.2
-projectJDK: corretto-17
+projectJDK: temurin-17
 
 profile:
   name: qodana.recommended
