@@ -1,36 +1,20 @@
 package com.filestorage.api;
 
-/**파일 저장 요청 시 전달하는 메타데이터를 표현합니다.*/
+/** 파일 저장 요청 시 전달하는 메타데이터를 표현합니다. */
 public final class FileMetadata {
-
+	/** 사용자가 내 컴퓨터에서 올릴 때의 실제 이름 (예: 증명사진.jpg, 보고서.pdf) */
 	private final String originalName;
+	/** 파일의 정체 (예: image/jpeg, application/pdf) */
 	private final String contentType;
 
-	/**
-	 * 파일 메타데이터 객체를 생성합니다.
-	 *
-	 * @param originalName 저장 요청 원본 파일명
-	 * @param contentType 파일의 MIME 타입
-	 */
 	public FileMetadata(String originalName, String contentType) {
 		this.originalName = originalName;
 		this.contentType = contentType;
 	}
 
-	/**
-	 * 저장 요청 원본 파일명을 반환합니다.
-	 *
-	 * @return 원본 파일명
-	 */
 	public String getOriginalName() {
 		return originalName;
 	}
-
-	/**
-	 * 파일의 MIME 타입을 반환합니다.
-	 *
-	 * @return MIME 타입
-	 */
 	public String getContentType() {
 		return contentType;
 	}

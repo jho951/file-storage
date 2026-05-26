@@ -15,20 +15,15 @@ import java.nio.file.Path;
 
 /** 참조용 로컬 디스크 기반 {@link FileStorage} 구현체입니다. */
 public final class LocalFileStorage implements FileStorage {
-
+	/** 파일 저장소 설정 */
 	private final FileStorageConfig config;
 
-	/**
-	 * 로컬 파일 저장소를 생성하고 루트 디렉토리를 초기화합니다.
-	 *
-	 * @param config 파일 저장소 설정
-	 */
 	public LocalFileStorage(FileStorageConfig config) {
 		this.config = config;
 		initRootDirectory();
 	}
 
-	/** 루트 디렉토리 존재 여부와 유효성을 검사하고 필요 시 생성합니다. */
+	/** 루트 디렉토리 존재 여부와 유효성을 검사 */
 	private void initRootDirectory() {
 		Path root = config.getRootDirectory();
 		try {
@@ -50,9 +45,7 @@ public final class LocalFileStorage implements FileStorage {
 	 */
 	@Override
 	public StoredFile store(InputStream input, FileMetadata metadata) {
-		if (input == null) {
-			throw new IllegalArgumentException("InputStream must not be null");
-		}
+		if (input == null) throw new IllegalArgumentException("InputStream must not be null");
 		String fileId = PathUtils.randomFileName();
 		Path target = PathUtils.resolveSafe(config.getRootDirectory(), fileId);
 
